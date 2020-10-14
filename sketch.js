@@ -22,7 +22,7 @@ function setup() {
 	
 	stone = new Stone(20,570,40,40);
 	
-	boy = createSprite(70,630,100,200);
+	boy = createSprite(100,630,100,200);
 	boy.addImage(boyImage);
 	boy.scale=0.1;
 	
@@ -39,16 +39,16 @@ function setup() {
 	mango9 = new Mango(750,280,50,50);
 	mango10 = new Mango(550,200,50,50);
 
-	slingshot = new slingShot(stone.body,{x:40 , y:570});
+	slingshot = new slingShot(stone.body,{x:50 , y:570});
 	
-	Engine.run(engine);
+	
   
 }
 
 
 function draw() {
-  rectMode(CENTER);
-  background(255,255,255);
+ Engine.update(engine);
+  background(0);
   
   ground.display();
 
@@ -64,6 +64,7 @@ function draw() {
   mango8.display();
   mango9.display();
   mango10.display();
+  
 
   slingshot.display();
 
@@ -71,7 +72,21 @@ function draw() {
 
   stone.display();
  
+
+  
 }
+
+
+function mouseDragged(){
+
+	Matter.Body.setPosition(stone.body,{x:mouseX, y:mouseY});
+	}
+	
+	function mouseReleased(){
+    
+		slingshot.fly()
+		
+		}
 
 
 

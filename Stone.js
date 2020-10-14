@@ -1,7 +1,7 @@
 class Stone {
     constructor(x,y,width,height) {
       var options = { 
-        restitution:0,
+        restitution:0.1,
         friction:1,
         density:1.2
        
@@ -15,7 +15,6 @@ class Stone {
     display(){
       var pos =this.body.position;
       imageMode(CENTER);
-      fill ("black")
       image(this.image,pos.x, pos.y, this.width, this.height);
     }
   };
