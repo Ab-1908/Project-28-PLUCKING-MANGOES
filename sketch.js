@@ -6,10 +6,12 @@ const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 var stone;
 var boy, boyImage;
+var treeImage;
 
 function preload()
 {
 	boyImage = loadImage("boy.png");
+	treeImage = loadImage("tree.png");
 }
 
 function setup() {
@@ -26,7 +28,7 @@ function setup() {
 	boy.addImage(boyImage);
 	boy.scale=0.1;
 	
-	tree = new Tree(600,390,400,600);
+	image("treeImage",600,390,400,600);
 
 	mango = new Mango(600,310,50,50);
 	mango2 = new Mango(650,200,50,50);
@@ -51,8 +53,6 @@ function draw() {
   background(0);
   
   ground.display();
-
-  tree.display();
 
   mango.display();
   mango2.display();
